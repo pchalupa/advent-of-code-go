@@ -14,8 +14,9 @@ func main() {
 }
 
 func FirstChallenge(data *string) int {
-	elves := utils.SplitStringByEmptyLine(data)
 	var calories []int
+
+	elves := utils.SplitStringByEmptyLine(data)
 
 	for _, elf := range elves {
 		items := utils.SplitStringByNewLine(&elf)
