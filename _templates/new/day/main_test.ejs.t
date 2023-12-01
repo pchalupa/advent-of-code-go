@@ -1,5 +1,5 @@
 ---
-to: day_<%= number %>/test_main.go
+to: day_<%= number %>/main_test.go
 ---
 package main
 
@@ -10,7 +10,7 @@ import (
 )
 
 func setup() string {
-	return utils.LoadDataSet("./test_data.txt")
+	return utils.LoadDataSet("./data_test.txt")
 }
 
 func TestFirstChallenge(t *testing.T) {
@@ -29,7 +29,7 @@ func TestSecondChallenge(t *testing.T) {
 	data := setup()
 
 	expect := 0
-	got := FirstChallenge(&data)
+	got := SecondChallenge(&data)
 
 
 	if got != expect {
