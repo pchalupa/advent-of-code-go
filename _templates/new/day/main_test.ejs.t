@@ -9,12 +9,8 @@ import (
 	"github.com/pchalupa/advent-of-code-go/utils"
 )
 
-func setup() string {
-	return utils.LoadDataSet("./data_test.txt")
-}
-
 func TestFirstChallenge(t *testing.T) {
-	data := setup()
+	data := utils.LoadDataSet("./data_test.txt")
 
 	expect := 0
 	got := FirstChallenge(&data)
@@ -26,7 +22,7 @@ func TestFirstChallenge(t *testing.T) {
 }
 
 func TestSecondChallenge(t *testing.T) {
-	data := setup()
+	data := utils.LoadDataSet("./data_test_2.txt")
 
 	expect := 0
 	got := SecondChallenge(&data)
