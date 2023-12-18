@@ -9,17 +9,23 @@ import (
 
 func main() {
 	data := utils.LoadDataSet("./data.txt")
+	firstChallenge := make(chan int)
+	secondChallenge := make(chan int)
 
-	firstChallenge := FirstChallenge(&data)
-	secondChallenge := SecondChallenge(&data);
+	go FirstChallenge(&data, firstChallenge)
+	go SecondChallenge(&data, secondChallenge);
 
-	utils.PrintResults(firstChallenge, secondChallenge)
+	utils.PrintResults(<-firstChallenge, <-secondChallenge)
 }
 
-func FirstChallenge(data *string) int {
-	return 0
+func FirstChallenge(data *string, channel chan int) {
+	var result = 0
+
+	channel <- result
 }
 
-func SecondChallenge(data *string) int {
-	return 0
+func SecondChallenge(data *string, channel chan int) {
+	var result = 0
+
+	channel <- result
 }

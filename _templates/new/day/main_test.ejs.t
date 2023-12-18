@@ -11,9 +11,13 @@ import (
 
 func TestFirstChallenge(t *testing.T) {
 	data := utils.LoadDataSet("./data_test.txt")
+	channel := make(chan int)
 
 	expect := 0
-	got := FirstChallenge(&data)
+
+	go FirstChallenge(&data, channel)
+
+	got := <- channel
 
 
 	if got != expect {
@@ -23,9 +27,13 @@ func TestFirstChallenge(t *testing.T) {
 
 func TestSecondChallenge(t *testing.T) {
 	data := utils.LoadDataSet("./data_test_2.txt")
+	channel := make(chan int)
 
 	expect := 0
-	got := SecondChallenge(&data)
+
+	go SecondChallenge(&data, channel)
+
+	got := <- channel
 
 
 	if got != expect {
